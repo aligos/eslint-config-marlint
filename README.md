@@ -1,0 +1,47 @@
+# eslint-config-marlint [![Build Status](https://travis-ci.org/traveloka/eslint-config-marlint.svg?branch=master)](https://travis-ci.org/traveloka/eslint-config-marlint)
+
+> ESLint [shareable config](http://eslint.org/docs/developer-guide/shareable-configs.html) for [Marlint](https://github.com/traveloka/marlint)
+
+This is ESLint config based on [xo](https://github.com/sindresorhus/xo) with some adjustment in order to support [Flow](http://flowtype.org/), using [babel-eslint](https://github.com/babel/babel-eslint) internally.
+
+For easier setup, you may want to checkout [Marlint](https://github.com/traveloka/marlint)
+
+## Install
+
+```
+$ npm install --save-dev eslint-config-marlint
+```
+
+
+## Usage
+
+Add some ESLint config to your `package.json`:
+
+```json
+{
+	"name": "your-project-name",
+	"eslintConfig": {
+		"extends": "marlint"
+	}
+}
+```
+
+Or to `.eslintrc`:
+
+```json
+{
+	"extends": "marlint"
+}
+```
+
+Use [`marlint/browser`](browser.js) if you're in the browser:
+
+```json
+{
+	"extends": "marlint/browser"
+}
+```
+
+## License
+
+MIT

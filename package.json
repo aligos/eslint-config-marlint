@@ -1,0 +1,50 @@
+{
+  "name": "eslint-config-marlint",
+  "version": "1.0.0",
+  "description": "ESLint shareable config for Marlint",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "index.js",
+    "browser.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/traveloka/eslint-config-marlint.git"
+  },
+  "keywords": [
+    "eslint",
+    "config",
+    "jshint",
+    "jscs",
+    "jshint",
+    "jslint",
+    "standard",
+    "flow",
+    "flowtype",
+    "babel",
+    "babel-eslint",
+    "styleguide",
+    "linter",
+    "lint"
+  ],
+  "author": "Fatih Kalifa <fatih@traveloka.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/traveloka/eslint-config-marlint/issues"
+  },
+  "homepage": "https://github.com/traveloka/eslint-config-marlint#readme",
+  "devDependencies": {
+    "babel-eslint": "^4.0.5",
+    "clear-require": "^1.0.1",
+    "eslint": "^1.1.0",
+    "is-plain-obj": "^1.0.0",
+    "mocha": "^2.2.5",
+    "temp-write": "^1.1.2"
+  },
+  "peerDependencies": {
+    "eslint": ">=1.1.0"
+  }
+}
