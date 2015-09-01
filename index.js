@@ -141,7 +141,8 @@ module.exports = {
     // Stylistic Issues
     'array-bracket-spacing': [2, 'never'],
     'brace-style': [2, '1tbs', {allowSingleLine: false}],
-    'camelcase': [2, {properties: 'always'}],
+    // some content resource key are written in snake_case
+    'camelcase': 0,
     'comma-spacing': [2, {before: false, after: true}],
     'comma-style': [2, 'last'],
     'computed-property-spacing': [2, 'never'],
@@ -163,7 +164,7 @@ module.exports = {
     'no-spaced-func': 2,
     'no-trailing-spaces': 2,
     'no-unneeded-ternary': 2,
-    'object-curly-spacing': [2, 'never'],
+    'object-curly-spacing': [2, 'always'],
     'one-var': 0,
     'operator-assignment': [2, 'always'],
     'operator-linebreak': [2, 'after'],
@@ -189,7 +190,7 @@ module.exports = {
     'no-class-assign': 2,
     'no-const-assign': 2,
     'no-this-before-super': 2,
-    'object-shorthand': [2, 'always'],
+    'object-shorthand': 0,
     'prefer-spread': 2,
     // Flowtype currently doesn't support let & const
     'no-var': 0,
