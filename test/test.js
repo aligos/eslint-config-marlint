@@ -1,9 +1,8 @@
 'use strict';
-var assert = require('assert');
-var path = require('path');
-var fs = require('fs');
+var test = require('ava');
 var isPlainObj = require('is-plain-obj');
 var eslint = require('eslint');
+var fs = require('fs');
 var tempWrite = require('temp-write');
 var clearRequire = require('clear-require');
 
@@ -13,41 +12,37 @@ function runEslint(str, conf) {
     configFile: tempWrite.sync(JSON.stringify(conf))
   });
 
-  return linter.executeOnText(str);
+  return linter.executeOnText(str).results[0].messages;
 }
 
-describe('eslint-config-marlint', function() {
-  describe('marlint-node', function() {
-    it('should validate node javascript styleguide', function() {
-      clearRequire.all();
-      var conf = require('../');
-      assert(isPlainObj(conf));
-      assert(isPlainObj(conf.env));
-      assert(isPlainObj(conf.rules));
-      assert(conf.parser === 'babel-eslint');
+test('node', function (t) {
+  clearRequire.all();
+  var conf = require('../');
+  t.true(isPlainObj(conf));
+  t.true(isPlainObj(conf.env));
+  t.true(isPlainObj(conf.rules));
 
-      var file = fs.readFileSync(path.join(__dirname, '../fixture.js'), 'utf-8');
-      var result = runEslint(file, conf);
-      var errors = result.results[0].messages;
-      assert(errors[0].ruleId === 'no-unused-vars');
-      assert(errors[1].ruleId === 'quotes');
-      assert(errors[2].ruleId === 'semi');
-    });
-  });
+  var file = fs.readFileSync('./fixture.js', { encoding: 'utf-8' });
+  var errors = runEslint(file, conf);
+  t.is(errors[0].ruleId, 'react/display-name');
+  t.is(errors[1].ruleId, 'no-unused-vars');
+  t.is(errors[2].ruleId, 'quotes');
+  t.is(errors[3].ruleId, 'semi');
 
-  describe('marlint-browser', function() {
-    it('should validate browser javascript styleguide', function() {
-      clearRequire.all();
-      var conf = require('../browser');
+  t.end();
+});
 
-      assert(isPlainObj(conf));
-      assert(isPlainObj(conf.env));
-      assert(isPlainObj(conf.rules));
-      assert(conf.parser === 'babel-eslint');
+test('browser', function (t) {
+  clearRequire.all();
+  var conf = require('../browser');
 
-      var result = runEslint('\'use strict\';\nprocess.exit();\n', conf);
-      var errors = result.results[0].messages
-      assert(errors[0].ruleId === 'no-undef');
-    });
-  });
+  t.true(isPlainObj(conf));
+  t.true(isPlainObj(conf.env));
+  t.true(isPlainObj(conf.rules));
+  t.is(conf.parser, 'babel-eslint');
+
+  var errors = runEslint('\'use strict\';\nprocess.exit();\n', conf);
+  t.is(errors[0].ruleId, 'no-undef');
+
+  t.end();
 });

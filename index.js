@@ -8,7 +8,9 @@ module.exports = {
     node: true,
     mocha: true
   },
+  plugins: ['babel', 'react'],
   ecmaFeatures: {
+    jsx: true,
     arrowFunctions: true,
     binaryLiterals: true,
     blockBindings: true,
@@ -117,10 +119,7 @@ module.exports = {
     'radix': 2,
     'wrap-iife': [2, 'inside'],
     'yoda': 2,
-
-    // Strict Mode
-    // disabled because of https://github.com/eslint/eslint/issues/3306
-    // 'strict': [2, 'global'],
+    'strict': 0,
 
     // Variables
     'no-delete-var': 2,
@@ -186,17 +185,49 @@ module.exports = {
     // ES2015
     'arrow-parens': [2, 'as-needed'],
     'arrow-spacing': [2, { before: true, after: true }],
+    'prefer-arrow-callback': 2,
+    'prefer-template': 1,
+    'prefer-spread': 1,
     'constructor-super': 2,
     'generator-star-spacing': [2, 'before'],
     'no-class-assign': 2,
     'no-const-assign': 2,
     'no-this-before-super': 2,
     'object-shorthand': 0,
-    'prefer-spread': 2,
-    // Flowtype currently doesn't support let & const
+    // Flowtype currently doesn't support let, const and Reflect
     'no-var': 0,
     'prefer-const': 0,
-    // Flowtype also doesn't support Reflect yet
-    'prefer-reflect': 1
+    'prefer-reflect': 0,
+
+    // Babel specific config
+    'babel/object-shorthand': [2, 'always'],
+    'babel/generator-star-spacing': [2, 'before'],
+    'babel/arrow-parens': [2, 'as-needed'],
+    'babel/object-curly-spacing': 0,
+
+    // React & JSX
+    'react/display-name': 2,
+    'react/jsx-boolean-value': 2,
+    'react/jsx-curly-spacing': [2, 'never'],
+    'react/jsx-max-props-per-line': 0,
+    'react/jsx-no-duplicate-props': [2, { ignoreCase: true }],
+    'react/jsx-no-literals': 0,
+    'react/jsx-no-undef': 2,
+    'react/jsx-quotes': [2, 'single', 'avoid-escape'],
+    'react/jsx-sort-prop-types': 0,
+    'react/jsx-sort-props': 0,
+    'react/jsx-uses-react': 2,
+    'react/jsx-uses-vars': 2,
+    'react/no-danger': 1,
+    'react/no-did-mount-set-state': 0,
+    'react/no-did-update-set-state': 2,
+    'react/no-multi-comp': 0,
+    'react/no-unknown-property': 2,
+    'react/prop-types': 2,
+    'react/react-in-jsx-scope': 2,
+    'react/require-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/self-closing-comp': 2,
+    'react/sort-comp': 0,
+    'react/wrap-multilines': 2
   }
 };
