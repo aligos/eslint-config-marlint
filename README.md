@@ -2,7 +2,7 @@
 
 > ESLint [shareable config](http://eslint.org/docs/developer-guide/shareable-configs.html) for [Marlint](https://github.com/traveloka/marlint)
 
-This is ESLint config based on [xo](https://github.com/sindresorhus/xo) with some adjustment in order to support [Flow](http://flowtype.org/), using [babel-eslint](https://github.com/babel/babel-eslint) internally.
+This is ESLint config based on [XO](https://github.com/sindresorhus/xo) with some adjustment in order to support ES6+ES7, [React](https://facebook.github.io/react) and [Flow](http://flowtype.org/) by default using [babel-eslint](https://github.com/babel/babel-eslint) internally.
 
 For easier setup, you may want to checkout [Marlint](https://github.com/traveloka/marlint)
 
