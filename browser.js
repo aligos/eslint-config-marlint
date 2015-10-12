@@ -1,6 +1,8 @@
 'use strict';
-var config = require('./');
+var deepAssign = require('deep-assign');
+var def = require('./');
 
+var config = deepAssign({}, def);
 config.env.node = false;
 config.env.browser = true;
 
