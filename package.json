@@ -8,7 +8,8 @@
   },
   "files": [
     "index.js",
-    "browser.js"
+    "browser.js",
+    "es5.js"
   ],
   "repository": {
     "type": "git",
