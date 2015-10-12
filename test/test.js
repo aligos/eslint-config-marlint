@@ -53,7 +53,19 @@ test('browser', t => {
   t.end();
 });
 
+test('es5', t => {
+  var conf = require('../es5');
+
+  t.true(isPlainObj(conf));
+  t.true(isPlainObj(conf.env));
+  t.true(isPlainObj(conf.rules));
+  t.is(conf.parser, 'babel-eslint');
+
+  var fixture = path.join(__dirname, 'fixtures/es5.js');
+  var file = fs.readFileSync(fixture, { encoding: 'utf-8' });
+  var errors = runEslint(file, conf);
   t.is(errors[0].ruleId, 'no-undef');
+  t.is(errors[1].ruleId, 'semi');
 
   t.end();
 });
