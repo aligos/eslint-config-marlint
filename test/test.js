@@ -1,10 +1,10 @@
 'use strict';
+var fs = require('fs');
+var path = require('path');
 var test = require('ava');
 var isPlainObj = require('is-plain-obj');
 var eslint = require('eslint');
-var fs = require('fs');
 var tempWrite = require('temp-write');
-var clearRequire = require('clear-require');
 
 function runEslint(str, conf) {
   var linter = new eslint.CLIEngine({
@@ -15,19 +15,24 @@ function runEslint(str, conf) {
   return linter.executeOnText(str).results[0].messages;
 }
 
-test('node', function (t) {
-  clearRequire.all();
+test('node', t => {
   var conf = require('../');
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.env));
   t.true(isPlainObj(conf.rules));
 
-  var file = fs.readFileSync('./fixture.js', { encoding: 'utf-8' });
+  var fixture = path.join(__dirname, 'fixtures/default.js');
+  var file = fs.readFileSync(fixture, { encoding: 'utf-8' });
   var errors = runEslint(file, conf);
-  t.is(errors[0].ruleId, 'react/display-name');
-  t.is(errors[1].ruleId, 'no-unused-vars');
-  t.is(errors[2].ruleId, 'quotes');
-  t.is(errors[3].ruleId, 'semi');
+  t.is(errors[0].ruleId, 'no-unused-vars');
+  t.is(errors[1].ruleId, 'react/react-in-jsx-scope');
+  t.is(errors[2].ruleId, 'jsx-quotes');
+  t.is(errors[3].ruleId, 'babel/object-shorthand');
+  t.is(errors[4].ruleId, 'object-shorthand');
+  t.is(errors[5].ruleId, 'prefer-arrow-callback');
+  t.is(errors[6].ruleId, 'quotes');
+  t.is(errors[7].ruleId, 'prefer-template');
+  t.is(errors[8].ruleId, 'semi');
 
   t.end();
 });
