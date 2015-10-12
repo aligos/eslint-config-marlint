@@ -42,12 +42,13 @@ Use [`marlint/browser`](browser.js) if you're in the browser:
 }
 ```
 
-By default marlint will lint using ES2015+ rules, if you write in ES5, use es5 only rules:
+By default marlint will lint using ES2015+ rules, if you write in ES5, use [es5 only](es5.js) rules:
 
 ```json
 {
 	"extends": "marlint/es5"
 }
+```
 
 ## License
 
