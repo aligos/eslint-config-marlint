@@ -37,8 +37,7 @@ test('node', t => {
   t.end();
 });
 
-test('browser', function (t) {
-  clearRequire.all();
+test('browser', t => {
   var conf = require('../browser');
 
   t.true(isPlainObj(conf));
@@ -46,7 +45,14 @@ test('browser', function (t) {
   t.true(isPlainObj(conf.rules));
   t.is(conf.parser, 'babel-eslint');
 
-  var errors = runEslint('\'use strict\';\nprocess.exit();\n', conf);
+  var fixture = path.join(__dirname, 'fixtures/browser.js');
+  var file = fs.readFileSync(fixture, { encoding: 'utf-8' });
+  var errors = runEslint(file, conf);
+  t.is(errors[0].ruleId, 'no-undef');
+
+  t.end();
+});
+
   t.is(errors[0].ruleId, 'no-undef');
 
   t.end();
