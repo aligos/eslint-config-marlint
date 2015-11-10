@@ -38,9 +38,9 @@
   },
   "homepage": "https://github.com/traveloka/eslint-config-marlint#readme",
   "devDependencies": {
-    "ava": "*",
-    "eslint": "^1.6.0",
-    "is-plain-obj": "^1.0.0",
+    "ava": "^0.4.2",
+    "eslint": "^1.9.0",
+    "is-plain-obj": "^1.1.0",
     "temp-write": "^1.1.2"
   },
   "peerDependencies": {

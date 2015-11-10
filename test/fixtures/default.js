@@ -3,7 +3,8 @@ const Block = () => {
   return <div className="as" />;
 };
 
-let text = 'random';
+var text = 'random';
+text += 'a';
 let x = {
   text: text
 };
