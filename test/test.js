@@ -67,11 +67,10 @@ test('es5', t => {
   var errors = runEslint(file, conf);
   t.is(errors[0].ruleId, 'no-undef');
   t.is(errors[1].ruleId, 'handle-callback-err');
-  t.is(errors[2].ruleId, 'no-unused-vars');
-  t.is(errors[3].ruleId, 'no-use-before-define');
-  t.is(errors[4].ruleId, 'semi');
-  t.is(errors[5].ruleId, 'one-var');
-  t.is(errors[6].ruleId, 'indent');
+  t.is(errors[2].ruleId, 'no-use-before-define');
+  t.is(errors[3].ruleId, 'semi');
+  t.is(errors[4].ruleId, 'one-var');
+  t.is(errors[5].ruleId, 'indent');
 
   t.end();
 });

@@ -13,6 +13,11 @@ module.exports = deepAssign(xo, {
     // Indent using 2 space
     'indent': [2, 2, { SwitchCase: 1 }],
 
+    // Allow function arguments to be unused, but disallow others.
+    // This pattern is used in express, and also useful in some cases
+    // where unused args is better than remembering what args available
+    'no-unused-vars': [2, { vars: 'all', args: 'none' }],
+
     // Backward compatibility with old scripts
     'no-script-url': 1,
 

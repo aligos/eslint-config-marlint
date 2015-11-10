@@ -9,6 +9,11 @@ let x = {
   text: text
 };
 
-x.run(function () {});
+x.run(
+  // unused function args should be okay
+  function (req, res, next) {
+
+  }
+);
 
 console.log("testing" + x.text)
