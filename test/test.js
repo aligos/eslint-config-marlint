@@ -25,15 +25,16 @@ test('node', t => {
   var file = fs.readFileSync(fixture, { encoding: 'utf-8' });
   var errors = runEslint(file, conf);
   t.is(errors[0].ruleId, 'no-unused-vars');
-  t.is(errors[1].ruleId, 'react/react-in-jsx-scope');
-  t.is(errors[2].ruleId, 'jsx-quotes');
-  t.is(errors[3].ruleId, 'no-var');
-  t.is(errors[4].ruleId, 'prefer-const');
-  t.is(errors[5].ruleId, 'babel/object-shorthand');
-  t.is(errors[6].ruleId, 'prefer-arrow-callback');
-  t.is(errors[7].ruleId, 'quotes');
-  t.is(errors[8].ruleId, 'prefer-template');
-  t.is(errors[9].ruleId, 'semi');
+  t.is(errors[1].ruleId, 'react/display-name');
+  t.is(errors[2].ruleId, 'react/react-in-jsx-scope');
+  t.is(errors[3].ruleId, 'jsx-quotes');
+  t.is(errors[4].ruleId, 'no-var');
+  t.is(errors[5].ruleId, 'prefer-const');
+  t.is(errors[6].ruleId, 'babel/object-shorthand');
+  t.is(errors[7].ruleId, 'prefer-arrow-callback');
+  t.is(errors[8].ruleId, 'quotes');
+  t.is(errors[9].ruleId, 'prefer-template');
+  t.is(errors[10].ruleId, 'semi');
 
   t.end();
 });
