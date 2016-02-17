@@ -1,3 +1,4 @@
+/* eslint no-var: 0 */
 'use strict';
 var fs = require('fs');
 var path = require('path');
@@ -35,8 +36,6 @@ test('node', t => {
   t.is(errors[8].ruleId, 'quotes');
   t.is(errors[9].ruleId, 'prefer-template');
   t.is(errors[10].ruleId, 'semi');
-
-  t.end();
 });
 
 test('browser', t => {
@@ -51,8 +50,6 @@ test('browser', t => {
   var file = fs.readFileSync(fixture, { encoding: 'utf-8' });
   var errors = runEslint(file, conf);
   t.is(errors[0].ruleId, 'no-undef');
-
-  t.end();
 });
 
 test('es5', t => {
@@ -72,6 +69,4 @@ test('es5', t => {
   t.is(errors[3].ruleId, 'semi');
   t.is(errors[4].ruleId, 'one-var');
   t.is(errors[5].ruleId, 'indent');
-
-  t.end();
 });

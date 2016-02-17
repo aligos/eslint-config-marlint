@@ -12,6 +12,12 @@ For easier setup, you may want to checkout [Marlint](https://github.com/travelok
 $ npm install --save-dev eslint-config-marlint
 ```
 
+You also need to install other dependencies if you're on npm 3 (if you're on npm 2 it will be installed automatically)
+
+```
+$ npm install babel-eslint eslint-plugin-babel eslint-plugin-react --save-dev
+```
+
 
 ## Usage
 
